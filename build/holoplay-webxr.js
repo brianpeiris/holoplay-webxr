@@ -1573,9 +1573,7 @@ to native implementations of the API.`;
                 };
 
                 const polyfillMakeXRCompatible = Context => {
-                  if (typeof Context.prototype.makeXRCompatible === 'function') {
-                    return false;
-                  }
+                  if (typeof Context.prototype.makeXRCompatible === 'function') ;
                   Context.prototype.makeXRCompatible = function () {
                     this[XR_COMPATIBLE] = true;
                     return Promise.resolve();
@@ -5864,10 +5862,8 @@ to native implementations of the API.`;
                     this.global = this.config.global;
                     this.nativeWebXR = 'xr' in this.global.navigator;
                     this.injected = false;
-                    if (!this.nativeWebXR) {
+                    {
                       this._injectPolyfill(this.global);
-                    } else {
-                      this._injectCompatibilityShims(this.global);
                     }
                   }
                   _injectPolyfill(global) {
@@ -5883,7 +5879,7 @@ to native implementations of the API.`;
                     }
                     {
                       const polyfilledCtx = polyfillMakeXRCompatible(global.WebGLRenderingContext);
-                      if (polyfilledCtx) {
+                      {
                         polyfillGetContext(global.HTMLCanvasElement);
                         if (global.OffscreenCanvas) {
                           polyfillGetContext(global.OffscreenCanvas);
