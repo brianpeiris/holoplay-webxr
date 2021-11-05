@@ -26,6 +26,6 @@
   "dependencies": {
     "gl-matrix": "^2.8.1",
     "holoplay-core": "0.0.8",
-    "webxr-polyfill": "file:./third_party/webxr-polyfill"
+    "webxr-polyfill": "brianpeiris/webxr-polyfill#holoplay-webxr"
   }
 }
